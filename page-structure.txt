@@ -1,0 +1,27 @@
+Home Page
+  if user not logged in:
+    <LogInForm>
+      name input and password input + a log in button.
+  if user logged in:
+    <Header>
+      menu links w. routes to at least 3 pages (including <Home>)
+      Showcase some content specific to the user.
+
+Additional pages:
+  Profile Page:
+    A profile page showing information saved in the User object
+    Show short summary of their saved favorite items
+    Clicking an items should load the items page.
+
+  Categories Page:
+    Information loaded by an API call
+    Clicking on a category leads to a new page with a short summary of items in that category
+    Clicking on a item in that category should [dynamically] load the Items Page
+    User should be able to select a favorite category that is saved in context
+
+  Items Page:
+    Show most of the information of an item
+    Allow user to save the item
+    Saved items should appear on the Profile Page
+
+-------------------------------------
