@@ -1,7 +1,8 @@
 export interface UserType {
   name: string,
   favouriteCategory: string | null,
-  favouriteRecipe: string[]
+  favouriteRecipe: string[],
+  password: string
 }
 
 export interface UserContextType {

@@ -4,16 +4,25 @@ export const UserArray:UserType [] = [
   {
     name: "Tobbe",
     favouriteCategory: "Chicken",
-    favouriteRecipe:[]
+    favouriteRecipe: [],
+    password: "123"
   },
   {
     name: "Bobbe",
     favouriteCategory: null,
-    favouriteRecipe:[]
+    favouriteRecipe: [],
+    password: "456"
   },
   {
     name: "Robbe",
     favouriteCategory: "Beef",
-    favouriteRecipe:[]
+    favouriteRecipe: [],
+    password: "789"
   },
+  {
+    name: "Johnny",
+    favouriteCategory: "Fish",
+    favouriteRecipe: [],
+    password: "123"
+  }
 ]

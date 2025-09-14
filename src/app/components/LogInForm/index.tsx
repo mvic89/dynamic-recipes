@@ -6,38 +6,57 @@ import { UserContextType } from "@/app/utils/types"
 
 const LogInForm = () => {
   const [userInput, setUserInput] = useState<string>('')
-  const [userNotFound, setUserNotFound] = useState<boolean>(true)
+  const [passWordInput, setPassWordInput] = useState<string>('')
+  const [userNotFound, setUserNotFound] = useState<boolean>(false)
   const {user, setUser} = useUserContext() as UserContextType;
 
-  const handleClick = (event: { preventDefault: () => void }) => {
+const handleClick = (event: React.FormEvent) => {
     event.preventDefault();
-    const loggedInUser = UserArray.filter(user => user.name === userInput)
-    // console.log(loggedInUser[0])
 
-    if(!loggedInUser[0]) setUserNotFound(false)
-    else setUserNotFound(true)
+    const loggedInUser = UserArray.find(
+      user => user.name === userInput && user.password === passWordInput
+    )
 
-    setUser(loggedInUser[0])
-    
+    if (!loggedInUser) {
+      setUserNotFound(true)
+    } else {
+      setUser(loggedInUser)
+      setUserNotFound(false)
+    }
   }
-  
-  if (user) console.log('The user is: ' + user?.name)
 
-  const handleChange = (event: { target: { value: any } }) => {
-    setUserInput(event.target.value)
-    // console.log(userInput)
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput(e.target.value)
   }
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassWordInput(e.target.value)
+  }
+
   return (
-    <>
+  <>
     <form>
       <label htmlFor="username">Enter your username</label>
-      <input onChange={handleChange} id="username" placeholder="Username" value={userInput}/>
+      <input
+        id="username"
+        placeholder="Username"
+        value={userInput}
+        onChange={handleUsernameChange}
+      />
       <label htmlFor="password">Enter your password</label>
-      <input id="password" placeholder="Password"/>
+      <input
+        id="password"
+        placeholder="Password"
+        type="password"
+        value={passWordInput}
+        onChange={handlePasswordChange}
+      />
       <button onClick={handleClick}>Log In!</button>
     </form>
-    {!userNotFound && <p>No user found! Check your details and please try again</p>}
-    </>
+    {userNotFound && (
+      <p className="text-red-500">No user found! Check your details.</p>
+    )}
+  </>
   )
 }
 
