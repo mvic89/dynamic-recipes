@@ -10,8 +10,8 @@ interface Props {
   params: { category: string };
 }
 
-const CategoryPage = async ({ params }: Props) => {
-  const { category } = params;
+const CategoryPage = async (context: Props) => {
+  const { category } = await context.params;
 
   const res = await fetch(
     `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
