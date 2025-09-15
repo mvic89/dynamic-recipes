@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 interface Meal {
   idMeal: string;
@@ -31,17 +32,17 @@ const CategoryPage = async (context: Props) => {
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
         {meals.map((meal) => (
-          <div
+          <Link
             key={meal.idMeal}
-            className="text-center border rounded-lg overflow-hidden shadow"
-          >
+            href={`/meals/${meal.idMeal}`}
+            className="text-center border rounded-lg overflow-hidden shadow hover:shadow-lg transition">
             <img
               src={meal.strMealThumb}
               alt={meal.strMeal}
               className="w-full h-32 object-cover"
             />
             <h4 className="text-md font-medium p-2">{meal.strMeal}</h4>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
