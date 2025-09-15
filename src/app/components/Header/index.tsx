@@ -2,9 +2,16 @@
 import { useUserContext } from "@/app/utils/contexts";
 import { UserContextType } from "@/app/utils/types";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
-  const { user } = useUserContext() as UserContextType;
+  const { user, setUser } = useUserContext() as UserContextType;
+  const router = useRouter();
+
+  const handleLogout = () => {
+    setUser(null);  
+    router.push('/');
+  };
 
   return (
   <header className="flex flex-col items-center gap-2">
@@ -19,6 +26,12 @@ const Header = () => {
             <Link href="/">Home</Link>
             <Link href="/categories">Categories</Link>
             <Link href="/profile">Profile</Link>
+            <button
+              onClick={handleLogout}
+              className="text-red-500 underline cursor-pointer"
+            >
+              Log Out
+            </button>
           </nav>
         </>
       )}
