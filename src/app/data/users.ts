@@ -3,7 +3,7 @@ import { UserType } from "@/app/utils/types"
 export const UserArray:UserType [] = [
   {
     name: "Tobbe",
-    favouriteCategory: "Chicken",
+    favouriteCategory: null,
     favouriteRecipe: [],
     password: "123"
   },
