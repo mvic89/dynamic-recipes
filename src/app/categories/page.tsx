@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useUserContext } from "@/app/utils/contexts";
+import { UserContextType } from "@/app/utils/types";
 
 interface Category {
   idCategory: string;
@@ -12,6 +14,8 @@ interface Category {
 
 const Categories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
+  const { user, setUser } = useUserContext() as UserContextType;
+  const [savedCategory, setSavedCategory] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -27,22 +31,48 @@ const Categories = () => {
     fetchCategories();
   }, []);
 
+  const handleSaveCategory = (categoryName: string) => {
+    if (user) {
+      setUser({
+        ...user,
+        favouriteCategory: categoryName,
+      });
+      setSavedCategory(categoryName);
+    }
+  };
+
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-4">
-      {categories.map((category) => (
-        <Link
-          key={category.idCategory}
-          href={`/categories/${category.strCategory}`}
-          className="text-center border rounded-lg overflow-hidden shadow hover:shadow-lg transition"
-        >
-          <img
-            src={category.strCategoryThumb}
-            alt={category.strCategory}
-            className="w-full h-32 object-cover"
-          />
-          <h3 className="text-lg font-semibold p-2">{category.strCategory}</h3>
-        </Link>
-      ))}
+    <div className="p-4">
+      <h2 className="text-2xl font-bold mb-4">Browse Categories</h2>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        {categories.map((category) => (
+          <div
+            key={category.idCategory}
+            className="text-center border rounded-lg overflow-hidden shadow hover:shadow-lg transition flex flex-col"
+          >
+            <Link href={`/categories/${category.strCategory}`}>
+              <img
+                src={category.strCategoryThumb}
+                alt={category.strCategory}
+                className="w-full h-32 object-cover"
+              />
+              <h3 className="text-lg font-semibold p-2">{category.strCategory}</h3>
+            </Link>
+
+            {user && (
+              <button
+                onClick={() => handleSaveCategory(category.strCategory)}
+                className={`mt-auto bg-blue-600 text-white px-3 py-2 text-sm hover:bg-blue-700 ${
+                  savedCategory === category.strCategory ? "bg-green-600" : ""
+                }`}
+              >
+                {savedCategory === category.strCategory ? "Saved!" : "Save Category"}
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

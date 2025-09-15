@@ -18,7 +18,7 @@ interface Props {
 }
 
 const MealDetailPage = async ({ params }: Props) => {
-  const { id } = params;
+  const id = (await params).id;
 
   const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
 
