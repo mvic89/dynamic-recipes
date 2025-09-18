@@ -40,10 +40,10 @@ const handleClick = (event: React.FormEvent) => {
       <label
         htmlFor="username"
         className="text-sm font-medium text-gray-700 mb-1"
-      >Enter your username</label>
+      >Enter your username:</label>
       <input
         id="username"
-        placeholder="Username"
+        placeholder="Jamie Oliver"
         value={userInput}
         onChange={handleUsernameChange}
         className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500  focus:border-transparent"
@@ -53,10 +53,10 @@ const handleClick = (event: React.FormEvent) => {
       <label
         htmlFor="password"
         className="text-sm font-medium text-gray-700 mb-1"
-      >Enter your password</label>
+      >Enter your password:</label>
       <input
         id="password"
-        placeholder="Password"
+        placeholder="Olive Oil"
         type="password"
         value={passWordInput}
         onChange={handlePasswordChange}
