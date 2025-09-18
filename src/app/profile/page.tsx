@@ -11,9 +11,8 @@ const Profile = () => {
   }
 
   return (
-    <div className="p-6 max-w-2xl mx-auto">
+    <div className="py-8 max-w-2xl mx-auto flex flex-grow flex-col">
       <h2 className="text-2xl font-bold mb-4">Welcome, {user.name}!</h2>
-
       <div className="mb-6">
         <h3 className="text-xl font-semibold mb-2">Favourite Category</h3>
         {user.favouriteCategory ? (

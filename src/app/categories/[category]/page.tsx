@@ -48,17 +48,17 @@ const CategoryPage = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="font-sans flex flex-grow flex-col items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
       <h2 className="text-2xl font-bold mb-4">
         Meals in category: {category}
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {meals.map((meal) => {
           const isSaved = user?.favouriteRecipe.some((fav) => fav.id === meal.idMeal);
           return (
             <div
               key={meal.idMeal}
-              className="text-center border rounded-lg overflow-hidden shadow flex flex-col hover:shadow-lg transition"
+              className="text-center border rounded-lg overflow-hidden shadow hover:shadow-lg transition flex flex-col"
             >
               <Link href={`/meals/${meal.idMeal}`}>
                 <img

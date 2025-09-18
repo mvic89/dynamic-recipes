@@ -41,7 +41,7 @@ const MealDetailPage = async ({ params }: Props) => {
   }
 
   return (
-    <div className="p-4 max-w-3xl mx-auto">
+    <div className="py-8 px-8 max-w-lg mx-auto sm:px-2">
       <h1 className="text-3xl font-bold mb-4">{meal.strMeal}</h1>
       <img
         src={meal.strMealThumb}
@@ -59,7 +59,6 @@ const MealDetailPage = async ({ params }: Props) => {
           ))}
         </ul>
       </div>
-
       <div>
         <h2 className="text-xl font-semibold mb-2">Instructions</h2>
         <p className="whitespace-pre-line">{meal.strInstructions}</p>

@@ -7,7 +7,7 @@ export default function Home() {
   const { user } = useUserContext() as UserContextType;
 
   return (
-    <div className="font-sans flex flex-grow flex-col items-center justify-items-center  p-8 pb-20 gap-16 sm:p-20">
+    <div className="font-sans flex flex-grow flex-col items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
       {user ? 
         <section className="text-center max-w-2xl">
             <h1 className="text-4xl font-bold mb-4">Hi {user.name}!</h1>

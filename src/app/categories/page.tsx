@@ -42,10 +42,10 @@ const Categories = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="font-sans flex flex-grow flex-col items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
       <h2 className="text-2xl font-bold mb-4">Browse Categories</h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {categories.map((category) => (
           <div
             key={category.idCategory}

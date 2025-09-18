@@ -15,26 +15,43 @@ const Header = () => {
 
   return (
   <header>
-    <div className="flex flex-row justify-between px-6 py-6 w-full max-w-[1200px] mx-auto">
-      <h1 className="text-2xl font-bold">My Recipes</h1>
-      {user && (
-        <>
-          {user.favouriteCategory && (
-            <h3>You really like {user.favouriteCategory}</h3>
-          )}
-          <nav className="mt-1 flex gap-4 text-blue-500 underline">
-            <Link href="/">Home</Link>
-            <Link href="/categories">Categories</Link>
-            <Link href="/profile">Profile</Link>
+    <div className="w-full max-w-[1200px] mx-auto px-6 py-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center items-center text-center sm:text-left  gap-4">
+        <Link href="/">
+          <h1 className="text-2xl font-bold text-gray-800">My Recipes</h1>
+        </Link>
+    
+        {user && (
+          <nav className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center">
+            <Link
+              href="/"
+              className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              href="/categories"
+              className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+            >
+              Categories
+            </Link>
+            <Link
+              href="/profile"
+              className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+            >
+              Profile
+            </Link>
             <button
               onClick={handleLogout}
-              className="mb-1 text-red-500 underline cursor-pointer"
-            >Log Out</button>
+              className="px-4 py-2 bg-red-500 text-white rounded-md font-semibold hover:bg-red-600 transition duration-200"
+            >
+              Log Out
+            </button>
           </nav>
-        </>
-      )}
+        )}
+      </div>
     </div>
-    </header>
+  </header>
   )
 }
 
