@@ -1,11 +1,16 @@
+export interface FavouriteMeal {
+  id: string;
+  name: string;
+}
+
 export interface UserType {
   name: string,
   favouriteCategory: string | null,
-  favouriteRecipe: string[],
+  favouriteRecipe: FavouriteMeal[],
   password: string
 }
 
 export interface UserContextType {
   user: UserType | null,
-  setUser: (user: UserType | null) => void
+  setUser: (user: UserType | null) => void;
 }

@@ -1,6 +1,7 @@
 'use client';
 import { useUserContext } from "@/app/utils/contexts";
 import { UserContextType } from "@/app/utils/types";
+import Link from "next/link";
 
 const Profile = () => {
   const { user } = useUserContext() as UserContextType;
@@ -25,8 +26,15 @@ const Profile = () => {
         <h3 className="text-xl font-semibold mb-2">Favourite Recipes</h3>
         {user.favouriteRecipe.length > 0 ? (
           <ul className="list-disc list-inside space-y-1">
-            {user.favouriteRecipe.map((recipe, index) => (
-              <li key={index}>{recipe}</li>
+            {user.favouriteRecipe.map((meal, index) => (
+              <li key={index}>
+                <Link
+                  href={`/meals/${meal.id}`}
+                  className="text-blue-500 underline hover:text-blue-700"
+                >
+                  {meal.name}
+                </Link>
+              </li>
             ))}
           </ul>
         ) : (

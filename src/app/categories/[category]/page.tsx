@@ -36,14 +36,14 @@ const CategoryPage = () => {
     fetchMeals();
   }, [category]);
 
-  const handleSaveMeal = (mealName: string) => {
+  const handleSaveMeal = (meal: Meal) => {
     if (!user) return;
 
-    if (user.favouriteRecipe.includes(mealName)) return;
+    if (user.favouriteRecipe.some((fav) => fav.id === meal.idMeal)) return;
 
     setUser({
       ...user,
-      favouriteRecipe: [...user.favouriteRecipe, mealName],
+      favouriteRecipe: [...user.favouriteRecipe, {id: meal.idMeal, name: meal.strMeal}],
     });
   };
 
@@ -54,7 +54,7 @@ const CategoryPage = () => {
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
         {meals.map((meal) => {
-          const isSaved = user?.favouriteRecipe.includes(meal.strMeal);
+          const isSaved = user?.favouriteRecipe.some((fav) => fav.id === meal.idMeal);
           return (
             <div
               key={meal.idMeal}
@@ -71,7 +71,7 @@ const CategoryPage = () => {
 
               {user && (
                 <button
-                  onClick={() => handleSaveMeal(meal.strMeal)}
+                  onClick={() => handleSaveMeal(meal)}
                   disabled={isSaved}
                   className={`mt-auto px-3 py-2 text-sm text-white transition ${
                     isSaved
