@@ -35,24 +35,39 @@ const handleClick = (event: React.FormEvent) => {
 
   return (
   <>
-    <form>
-      <label htmlFor="username">Enter your username</label>
+  <form onSubmit={handleClick} className="w-full max-w-sm mx-auto bg-white shadow-md rounded-lg p-6 space-y-4">
+    <div className="flex flex-col">
+      <label
+        htmlFor="username"
+        className="text-sm font-medium text-gray-700 mb-1"
+      >Enter your username</label>
       <input
         id="username"
         placeholder="Username"
         value={userInput}
         onChange={handleUsernameChange}
+        className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500  focus:border-transparent"
       />
-      <label htmlFor="password">Enter your password</label>
+    </div>
+    <div className="flex flex-col">
+      <label
+        htmlFor="password"
+        className="text-sm font-medium text-gray-700 mb-1"
+      >Enter your password</label>
       <input
         id="password"
         placeholder="Password"
         type="password"
         value={passWordInput}
         onChange={handlePasswordChange}
+        className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500  focus:border-transparent"
       />
-      <button onClick={handleClick}>Log In!</button>
-    </form>
+    </div>
+    <button
+      type="submit"
+      className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition  duration-200"
+    >Log In!</button>
+  </form>
     {userNotFound && (
       <p className="text-red-500">No user found! Check your details.</p>
     )}
