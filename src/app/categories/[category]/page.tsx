@@ -48,7 +48,7 @@ const CategoryPage = () => {
   };
 
   return (
-    <div className="font-sans flex flex-grow flex-col items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
+    <div className="font-sans flex flex-grow flex-col items-center justify-items-center p-8 pb-20 gap-16 bg-amber-50 sm:p-20">
       <h2 className="text-2xl font-bold mb-4">
         Meals in category: {category}
       </h2>

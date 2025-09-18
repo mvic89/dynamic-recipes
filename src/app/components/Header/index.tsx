@@ -14,30 +14,30 @@ const Header = () => {
   };
 
   return (
-  <header>
+  <header className="bg-amber-100">
     <div className="w-full max-w-[1200px] mx-auto px-6 py-6">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center items-center text-center sm:text-left  gap-4">
         <Link href="/">
           <h1 className="text-2xl font-bold text-gray-800">My Recipes</h1>
         </Link>
-    
+
         {user && (
           <nav className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center">
             <Link
               href="/"
-              className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              className="text-gray-700 hover:text-gray-500 font-semibold transition-colors"
             >
               Home
             </Link>
             <Link
               href="/categories"
-              className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              className="text-gray-700 hover:text-gray-500 font-semibold transition-colors"
             >
               Categories
             </Link>
             <Link
               href="/profile"
-              className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+              className="text-gray-700 hover:text-gray-500 font-semibold transition-colors"
             >
               Profile
             </Link>
