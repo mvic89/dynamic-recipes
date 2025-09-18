@@ -16,6 +16,6 @@ export const UserContextProvider = (
   )
 }
 
-export const useUserContext = () => { // a function that gets the 'const [user, setUser] = useState<UserType | null>(null)' information
+export const useUserContext = () => {
   return useContext(UserContext)
 }
