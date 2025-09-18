@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useUserContext } from "@/app/utils/contexts";
 import { UserContextType } from "@/app/utils/types";
+import Image from "next/image";
 
 interface Category {
   idCategory: string;
@@ -52,9 +53,11 @@ const Categories = () => {
             className="text-center border rounded-lg overflow-hidden shadow hover:shadow-lg transition flex flex-col"
           >
             <Link href={`/categories/${category.strCategory}`}>
-              <img
+              <Image
                 src={category.strCategoryThumb}
                 alt={category.strCategory}
+                width={300}
+                height={200}
                 className="w-full h-32 object-cover"
               />
               <h3 className="text-lg font-semibold p-2">{category.strCategory}</h3>

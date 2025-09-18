@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 interface MealDetail {
   idMeal: string;
@@ -8,7 +9,7 @@ interface MealDetail {
   strInstructions: string;
   strMealThumb: string;
   strTags: string;
-  [key: string]: any;
+  [key: string]: string | undefined;
 }
 
 interface Props {
@@ -44,9 +45,11 @@ const MealDetailPage = async ({ params }: Props) => {
     <div className="bg-amber-50">
       <div className="py-8 px-8 max-w-lg mx-auto  sm:px-2">
         <h1 className="text-3xl font-bold mb-4">{meal.strMeal}</h1>
-        <img
+        <Image
           src={meal.strMealThumb}
           alt={meal.strMeal}
+          width={300}
+          height={200}
           className="w-full h-auto rounded-lg shadow mb-4"
         />
         <p className="text-lg mb-2"><strong>Category:</strong> {meal.strCategory}</p>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useUserContext } from "@/app/utils/contexts";
 import { UserContextType } from "@/app/utils/types";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Meal {
   idMeal: string;
@@ -61,9 +62,11 @@ const CategoryPage = () => {
               className="text-center border rounded-lg overflow-hidden shadow hover:shadow-lg transition flex flex-col"
             >
               <Link href={`/meals/${meal.idMeal}`}>
-                <img
+                <Image
                   src={meal.strMealThumb}
                   alt={meal.strMeal}
+                  width={300}
+                  height={200}
                   className="w-full h-32 object-cover"
                 />
                 <h4 className="text-md font-medium p-2">{meal.strMeal}</h4>
